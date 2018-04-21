@@ -20,6 +20,33 @@ func Run(s string) string {
 	return ("\033[1;97m[~]\033[1;m " + s)
 }
 
+// Sub status etc
+
+func SubBad(s string) string {
+	return ("\033[1;31m[->]\033[1;m " + s)
+}
+
+func SubInfo(s string) string {
+	return ("\033[1;33m[->]\033[1;m " + s)
+}
+
+func SubGood(s string) string {
+	return ("\033[1;32m[->]\033[1;m " + s)
+}
+
+func SubGenInfo(s string) string { // # cyan + "->", no judgemental color
+	return ("\033[36m[->]\033[0m " + s)
+}
+
+func Comment(s string) string { // [*] + lightblue(text)
+	return ("\033[94m[*]\033[0m " + s)
+}
+
+func CommentHighlight(s string) string { // [*] + lightblue(text)
+	return ("\033[94m[*] " + s + "\033[0m ")
+}
+
+
 // Colors
 
 func Green(s string) string {
