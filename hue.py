@@ -34,10 +34,10 @@ def subinfo(string):
 def subgood(string):
 	return '\033[1;32m[->]\033[1;m ' + string
 
-def subgeninfo(string):  # cyan + "->", indentation without opinion
+def subgeninfo(string): 
 	return '\033[36m[->]\033[0m ' + string
 
-def comment(string):  # [*] + lightblue(text), such as [*] Found this IP: X
+def comment(string): 
 	return '\033[94m[*]\033[0m ' + string
 
 def commentHighlight(string):
