@@ -1,163 +1,166 @@
 package hue
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
-func Info(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;33m[!]\033[1;m " + allString)
+func Info(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;33m[!]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Que(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;34m[?]\033[1;m " + allString)
+func Que(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;34m[?]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Bad(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;31m[-]\033[1;m " + allString)
+func Bad(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;31m[-]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Good(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;32m[+]\033[1;m " + allString)
+func Good(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;32m[+]\033[1;m  %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Run(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;97m[~]\033[1;m " + allString)
+func Run(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;97m[~]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
 // Sub status etc
 
-func SubBad(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;31m[->]\033[1;m " + allString)
+func SubBad(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;31m[->]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func SubInfo(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;33m[->]\033[1;m " + allString)
+func SubInfo(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;33m[->]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func SubGood(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[1;32m[->]\033[1;m " + allString)
+func SubGood(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[1;32m[->]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func SubGenInfo(s ...string) string { // # cyan + "->", no judgemental color
-	allString := strings.Join(s, " ")
-	return ("\033[36m[->]\033[0m " + allString)
+func SubGenInfo(s ...interface{}) string { // # cyan + "->", no judgemental color
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[36m[->]\033[0m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Comment(s ...string) string { // ligthblue([*]) +(text)
-	allString := strings.Join(s, " ")
-	return ("\033[94m[*]\033[0m " + allString)
+func Comment(s ...interface{}) string { // ligthblue([*]) +(text)
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[94m[*]\033[0m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func CommentHighlight(s ...string) string { // lightblue([*] + (text) )
-	allString := strings.Join(s, " ")
-	return ("\033[94m[*] " + allString + "\033[0m ")
+func CommentHighlight(s ...interface{}) string { // lightblue([*] + (text) )
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[94m[*] %v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
 // Colors
 
-func Green(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[32m" + allString + "\033[0m")
+func Green(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[32m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func LightGreen(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[92m" + allString + "\033[0m")
+func LightGreen(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[92m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Grey(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[37m" + allString + "\033[0m")
+func Grey(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[37m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Black(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[30m" + allString + "\033[0m")
+func Black(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[30m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Red(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[31m" + allString + "\033[0m")
+func Red(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[31m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func LightRed(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[91m" + allString + "\033[0m")
+func LightRed(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[91m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Cyan(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[36m" + allString + "\033[0m")
+func Cyan(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[36m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func LightCyan(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[96m" + allString + "\033[0m")
+func LightCyan(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[96m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Blue(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[34m" + allString + "\033[0m")
+func Blue(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[34m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func LightBlue(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[94m" + allString + "\033[0m")
+func LightBlue(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[94m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Purple(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[35m" + allString + "\033[0m")
+func Purple(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[35m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func LightPurple(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[95m" + allString + "\033[0m")
+func LightPurple(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[95m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Yellow(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[93m" + allString + "\033[0m")
+func Yellow(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[93m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func White(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[97m" + allString + "\033[0m")
+func White(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[97m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Orange(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[33m" + allString + "\033[0m")
+func Orange(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[33m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
 // Styles
 
-func Bg(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[;7m" + allString + "\033[0m")
+func Bg(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[;7m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Bold(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[;1m" + allString + "\033[0m")
+func Bold(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[;1m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Italic(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[3m" + allString + "\033[0m")
+func Italic(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[3m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
-func Under(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[4m" + allString + "\033[0m")
+func Under(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[4m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
-func Strike(s ...string) string {
-	allString := strings.Join(s, " ")
-	return ("\033[09m" + allString + "\033[0m")
+func Strike(s ...interface{}) string {
+	str := fmt.Sprintf("%v", s)
+	return fmt.Sprintf("\033[09m%v\033[0m", strings.Trim(fmt.Sprintf(str), "[]"))
 }
