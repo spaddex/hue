@@ -1,6 +1,41 @@
 package hue
 
-import "strings"
+import (
+	"fmt"
+	"log"
+	"os"
+	"runtime"
+	"strings"
+
+	"golang.org/x/sys/windows/registry"
+)
+
+func init() {
+	enable4Windows()
+}
+
+func enable4Windows() {
+	if runtime.GOOS == "windows" {
+		k, err := registry.OpenKey(registry.CURRENT_USER, `Console`, registry.QUERY_VALUE|registry.SET_VALUE)
+		if err != nil {
+			log.Fatal("Error when trying to open the registry: ", err)
+		}
+		_, typ, _ := k.GetBinaryValue("VirtualTerminalLevel")
+		if typ != 4 {
+
+			if err := k.SetDWordValue("VirtualTerminalLevel", 1); err != nil {
+				log.Fatal(`Error when setting "VirtualTerminalLevel"`)
+			} else {
+				fmt.Println(`We've set the value key "VirtualTerminalLevel" to 1 in "HKEY_CURRENT_USER\Console" to enable colors for windows.`)
+				fmt.Println(`Please restart the terminal and you should have colors working`)
+				os.Exit(0)
+			}
+		}
+		if err := k.Close(); err != nil {
+			log.Fatal("Error on closing registry: ", err)
+		}
+	}
+}
 
 func Info(s ...string) string {
 	allString := strings.Join(s, " ")
