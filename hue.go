@@ -6,6 +6,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"time"
 
 	"golang.org/x/sys/windows/registry"
 )
@@ -92,6 +93,12 @@ func Comment(s ...string) string { // ligthblue([*]) +(text)
 func CommentHighlight(s ...string) string { // lightblue([*] + (text) )
 	allString := strings.Join(s, " ")
 	return ("\033[94m[*] " + allString + "\033[0m ")
+}
+
+func PrependTime(s ...string) string {
+	allString := strings.Join(s, " ")
+	currentTime := time.Now()
+	return (fmt.Sprintf("%v - %v", currentTime.Format("2006-01-02 15:04:05"), allString))
 }
 
 // Colors
