@@ -55,7 +55,7 @@ func Bad(s ...interface{}) string {
 
 func Good(s ...interface{}) string {
 	str := fmt.Sprintf("%v", s)
-	return fmt.Sprintf("\033[1;32m[+]\033[1;m  %v", strings.Trim(fmt.Sprintf(str), "[]"))
+	return fmt.Sprintf("\033[1;32m[+]\033[1;m %v", strings.Trim(fmt.Sprintf(str), "[]"))
 }
 
 func Run(s ...interface{}) string {
